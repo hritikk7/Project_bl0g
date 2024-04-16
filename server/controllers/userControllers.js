@@ -1,7 +1,22 @@
+const HttpError = require('../middlewares/errorMiddleware')
+
 // POST : api/users/register
 const registerUser = (req, res, next) => {
-    console.log("called");
-  res.json("registerUser");
+//     console.log("called");
+//   res.json("registerUser");
+    try{
+        let {name, email, password, confirmPass } = req.body
+
+
+    }catch(err){
+        console.log(err)
+        // res.status(401).json{message : "Internal server error"}
+        let newError = new HttpError("user registrarion Failed") 
+        return next(newError, 422)
+    }
+
+
+
 };
 
 // POST : api/users/login
